@@ -3,7 +3,7 @@
 #######################################################################################
 # Author: Jitendra Gehlot
 # Filename: mongo_hive_ETL.sh
-# Date: 10/10/2016
+# Date: 10/08/2014
 # Description: This script use to ETL Daily Load from MongoDB to 
 #			   HIVE table. In this script for monitoring purpose,nagios plugin is used.
 #######################################################################################
