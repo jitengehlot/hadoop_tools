@@ -1,7 +1,7 @@
 #####################################################################
 # Author: Jitendra Gehlot
 # Filename: mongoexport.txt
-# Date: 10/10/2016
+# Date: 10/08/2014
 # Description: This script contains commands for exporting data from
 # 			   MongoDB to CSV file.
 #####################################################################
