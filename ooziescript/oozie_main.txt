@@ -1,0 +1,7 @@
+oozie job -oozie http://10.10.26.45:11000/oozie/ -config /usr/lib/testoozie/map-reduce/job.properties -run
+
+oozie job -oozie http://localhost:11000/oozie -config /opt/cardtronics/apps/sqoop/job.properties -run -verbose
+
+oozie job -oozie http://10.10.26.45:11000/oozie -kill 0000005-140514125855742-oozie-oozi-W
+
+oozie job -oozie http://10.10.26.45:11000/oozie -config /root/cardtronics/apps/sqoop/job.properties -run -verbose
