@@ -3,7 +3,7 @@
 #####################################################################
 # Author: Jitendra Gehlot
 # Filename: hadoop_clean.sh
-# Date: 10/10/2016
+# Date: 10/08/2014
 # Description: This script is used to clean the Hadoop Installation
 #####################################################################
 
