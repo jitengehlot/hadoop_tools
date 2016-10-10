@@ -1,5 +1,11 @@
 #! /bin/bash
 
+#####################################################################
+# Author: Jitendra Gehlot
+# Date: 10/10/2016
+# Description: This script is used to clean the Hadoop Installation
+#####################################################################
+
 ambari-server stop
 echo 'Ambari-Server stopped successfully'
 
