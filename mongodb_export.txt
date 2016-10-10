@@ -1,0 +1,62 @@
+#####################################################################
+# Author: Jitendra Gehlot
+# Filename: mongoexport.txt
+# Date: 10/10/2016
+# Description: This script contains commands for exporting data from
+# 			   MongoDB to CSV file.
+#####################################################################
+
+mongoexport --db cardtronics --collection transactions --csv --fields _id,OD,RD,PD,TL,TT,RC,RJ,BD,ND,TS,SD,ST,AD,AT,AM,FE,SR,IC,TN,OB,ET,LD,PN,PT,PR,PC,P1,P2,AI,EP,IL,IT,IR,BR,DT,CD,DA,DL,DX,D7,CC,H4,H5,H6,H7,H8,H9,HA,HB,HC,HD,HE,HF,HM,PA --out txn.csv --query '{ "TL" : "LK496981"}'
+
+mongoexport --db cardtronics --collection transactions --csv --fields _id,OD,RD,PD,TL,TT,RC,RJ,BD,ND,TS,SD,ST,AD,AT,AM,FE,SR,IC,TN,OB,ET,LD,PN,PT,PR,PC,P1,P2,AI,EP,IL,IT,IR,BR,DT,CD,DA,DL,DX,D7,CC,H4,H5,H6,H7,H8,H9,HA,HB,HC,HD,HE,HF,HM,PA --out txn.csv --query '{ SD : { $gte:{ "$date": "2014-01-20T05:00:00.000Z" }, $lte:{ "$date": "2014-01-30T05:00:00.000Z" } }}'
+
+mongoexport --db cardtronics --collection transactions_HX --csv --fields _id,OD,RD,PD,TL,TT,RC,RJ,BD,ND,TS,SD,ST,AD,AT,AM,FE,SR,IC,TN,OB,ET,LD,PN,PT,PR,PC,P1,P2,AI,EP,IL,IT,IR,BR,DT,CD,DA,DL,DX,D7,CC,H4,H5,H6,H7,H8,H9,HA,HB,HC,HD,HE,HF,HM,PA,PM --out txn.csv --query '{ SD : { $gte:{ "$date": 1392218911000 }, $lte:{ "$date": 1392218911000 } }}'
+
+mongoexport --db cardtronics --collection transactions_HX --csv --fields _id,OD,RD,PD,TL,TT,RC,RJ,BD,ND,TS,SD,ST,AD,AT,AM,FE,SR,IC,TN,OB,ET,LD,PN,PT,PR,PC,P1,P2,AI,EP,IL,IT,IR,BR,DT,CD,DA,DL,DX,D7,CC,H4,H5,H6,H7,H8,H9,HA,HB,HC,HD,HE,HF,HM,PA,PM --out txn.csv --query '{ SD : { $gte:{ "$date": "2014-01-20T05:00:00.000Z" }, $lte:{ "$date": "2014-01-30T05:00:00.000Z" } } }'
+
+# current command
+mongoexport --db cardtronics --collection transactions --csv --fields _id,OD,RD,PD,TL,TT,RC,RJ,BD,ND,TS,SD,ST,AD,AT,AM,FE,SR,IC,TN,OB,ET,LD,PN,PT,PR,PC,P1,P2,AI,EP,IL,IT,IR,BR,DT,CD,DA,DL,DX,D7,CC,H4,H5,H6,H7,H8,H9,HA,HB,HC,HM,PA --out txn.csv --query '{ SD : { "$date": "2014-01-01T05:00:00.000Z" } }'
+
+# current command (pre-prod)
+./mongoexport --host 10.187.54.184:27017 --db cardtronics --collection transactions --csv --fields _id,OD,RD,PD,TL,TT,RC,RJ,BD,ND,TS,SD,ST,AD,AT,AM,FE,SR,IC,TN,OB,ET,LD,PN,PT,PR,PC,P1,P2,AI,EP,IL,IT,IR,BR,DT,CD,DA,DL,DX,D7,CC,H4,H5,H6,H7,H8,H9,HA,HB,HC,HM,PA --out /home/ec2-user/atmtxn_jan_14.csv --query '{ SD : { $gte:{ "$date": "2014-01-01T00:00:00.000Z" }, $lte:{ "$date": "2014-01-01T23:59:59.999Z" } } }'
+
+./mongoexport --host 10.187.54.184:27017 --db cardtronics --collection TxnType --csv --fields Code,Description --out /home/ec2-user/txntype.csv
+
+mongoexport --db cardtronics --collection transactions_Bin --csv --fields _id,OD,RD,PD,TL,TT,RC,RJ,BD,ND,TS,SD,ST,AD,AT,AM,FE,SR,IC,TN,OB,ET,LD,PN,PT,PR,PC,P1,P2,AI,EP,IL,IT,IR,BR,DT,CD,DA,DL,DX,D7,CC,H4,H5,H6,H7,H8,H9,HA,HB,HC,HD,HE,HF,HM,PA --out txn1week.csv --query '{ SD : { $gte:{ "$date": "2014-01-20T05:00:00.000Z" }, $lte:{ "$date": "2014-01-07T05:00:00.000Z" } }}'
+
+
+mongoimport --db cardtronics --collection transactions_export --type csv --headerline --file txn.csv
+
+mongoexport --db cardtronics --collection transactions_HX --csv --fields _id,OD,RD,PD,TL,TT,RC,RJ,BD,ND,TS,SD,ST,AD,AT,AM,FE,SR,IC,TN,OB,ET,LD,PN,PT,PR,PC,P1,P2,AI,EP,IL,IT,IR,BR,DT,CD,DA,DL,DX,D7,CC,H4,H5,H6,HX,HA,HB,HC,HD,HE,HF,HM,PA,PM --out txn.csv
+
+mongoexport --db card_cr --collection trans --csv --fields _id,OD,RD,PD,TL,TT,RC,RJ,BD,ND,TS,SD,ST,AD,AT,AM,FE,SR,IC,TN,OB,ET,LD,PN,PT,PR,PC,P1,P2,AI,EP,IL,IT,IR,BR,DT,CD,DA,DL,DX,D7,CC,H4,H5,H6,HX,HA,HB,HC,HM,PA --out txn.csv
+
+
+
+mongoexport --db cardtronics --collection transactions_test --fields _id,OD,RD,PD,TL,TT,RC,RJ,BD,ND,TS,SD,ST,AD,AT,AM,FE,SR,IC,TN,OB,ET,LD,PN,PT,PR,PC,P1,P2,AI,EP,IL,IT,IR,BR,DT,CD,DA,DL,DX,D7,CC,H4,H5,H6,HX,HA,HB,HC,HM,PA --csv --out /opt/txn.csv
+
+mongodump --db cardtronics --collection transactions_Bin_1day_agg
+
+scp -r root@74.208.11.129:/root/dump/cardtronics/transactions_Bin_1day_agg.bson /opt
+
+./mongoexport --host 74.208.11.129:27017  --db cardtronics --collection transactions --csv --fields _id,OD,RD,PD,TL,TT,RC,RJ,BD,ND,TS,SD,ST,AD,AT,AM,FE,SR,IC,TN,OB,ET,LD,PN,PT,PR,PC,P1,P2,AI,EP,IL,IT,IR,BR,DT,CD,DA,DL,DX,D7,CC,H4,H5,H6,H7,H8,H9,HA,HB,HC,HM,PA --out /var/atmtxn_jan_01_14.csv --query '{ SD : { $gte:{ "$date": "2014-01-01T00:00:00.000Z" }, $lte:{ "$date": "2014-01-01T23:59:59.999Z" } } }';
+
+# location details- 74 
+mongoexport --host 74.208.11.129:27017 -u binstudy1 -p "first#1234" --db cardtronics --collection locationdetails --csv --fields 'Allpoint Opt in',Arrangement,ATMInternalID,ATMStatus,BusinessLine,EntityInternalID,GPVendor,Latitude,Longitude,Location,LocationAddress,LocationCity,LocationCounty,LocationState,LocationZip,MachineType,Make,Model,MakeModel,MaxWithdrawal,MerchSurchargeShare,MSA,NetworkMgmt,ParticipantID,Processor,ProcessorID,Program,SerialNo,SubProgram,Surcharge,TerminalID,ZONE --out /tmp/locationdetails.csv;
+
+# location details- 198
+./mongoexport --host 198.251.76.5:27017 --db cardtronics --collection LocationDetails --csv --fields ATMInternalID,ATMLevel,ATMMemo,ATMStatus,AccountingClass,AddOrSwap,'Allpoint Opt in','Allpoint Opt out',ArmCarID_UI,ArmoredCarrier,Arrangement,BusinessLine,BusinessTypeTerminal,CardOwnsPhoneLine,CardlinkID,Connection,Contact,ContactAddr1,ContractAddr2,CreateDate,CustContractEnd,CustContractStart,DMA,DUNSNumber,DateDeinstalled,DateInstalled,Division,Email,EntityInternalID,Fax,FirstLineMaintCost,FirstLineMaintVendor,FirstLineTid,FirstTransdate,FreePaper,FutureTID,GPVendor,HrsFriClose,HrsFriOpen,HrsMonClose,HrsMonOpen,HrsSatClose,HrsSatOpen,HrsSunClose,HrsSunOpen,HrsThuClose,HrsThuOpen,HrsTueClose,HrsTueOpen,HrsWedClose,HrsWedOpen,InactivityCondition,Installer,InsuranceFee,InterchangePCTValue,KeyCustodian,LastTransDate,Latitude,Location,LocationAddress,LocationCellPhone,LocationCity,LocationContactPhone,LocationCountry,LocationCounty,LocationState,LocationZip,Longitude,MAILSTOP,MSA,MachineType,Make,MakeModel,Market,MaxWithdrawal,MemoAlert,MercGuarantee,MerchSurchargeShare,MerchantSCSharePCTValue,Model,MonitorByGasper,MonitorCash,NetworkMgmt,OwnerAddress,OwnerCity,OwnerCountry,OwnerEmail,OwnerFax,OwnerID_UI,OwnerName,OwnerState,OwnerZip,ParticipantID,PatriotDocsRecd,Processor,ProcessorID,ProcessorID_UI,Program,Region,SNinternalid_UI,SalesRep,SeasonalApr,SeasonalAug,SeasonalDec,SeasonalFeb,SeasonalJan,SeasonalJul,SeasonalJune,SeasonalMar,SeasonalMay,SeasonalNov,SeasonalOct,SeasonalSep,SecondLineMaintCost,SecondLineMaintVendor,SecondLineTid,SerialNo,Service1End,Service1Start,Service2End,Service2Start,StatementFee,Store,SubProgram,Surcharge,SurchargeBalInq,SurchargeDomestic,SurchargeIntl,SurchargeMinimum,SurchargePCTValue,TerminalID,TimeZone,TimeZoneDST,VATPCT,VisaTier,VisaTierID,WarrantyCost,WarrantyCoverage,WarrantyEnd,WarrantyStart,Zone  --out /tmp/locationdetails_198.csv;
+
+# location details- Mongo_Preprod-1
+./mongoexport --host 10.187.54.184:27017 --db cardtronics --collection locationdetails --csv --fields ATMInternalID,TerminalID,MachineType,ProcessorID,Processor,Surcharge,OwnerName,Location,LocationAddress,LocationCity,LocationState,LocationZip,LocationCounty,LocationCountry,LocationContactPhone,ATMStatus,SerialNo,MakeModel,OwnerAddress,OwnerCity,OwnerState,OwnerZip,LastTransDate,FirstTransdate,Program,BusinessLine,Arrangement,GPVendor,MonitorCash,FreePaper,EntityInternalID,Zone,ParticipantID,MAILSTOP,SalesRep,Contact,TimeZoneDST,CardOwnsPhoneLine,'Allpoint Opt in','Allpoint Opt out',CustContractStart,CustContractEnd,AccountingClass,WarrantyCoverage,FirstLineMaintCost,SecondLineMaintCost,FirstLineMaintVendor,SecondLineMaintVendor,ATMMemo,MonitorByGasper,ATMLevel,CreateDate,VisaTierID,VisaTier,FutureTID,SNinternalid_UI,OwnerID_UI,ProcessorID_UI,Make,Model,ContactAddr1,MemoAlert,InactivityCondition,SeasonalJan,SeasonalFeb,SeasonalMar,SeasonalApr,SeasonalMay,SeasonalJune,SeasonalJul,SeasonalAug,SeasonalSep,SeasonalOct,SeasonalNov,SeasonalDec,Latitude,Longitude,InterchangePCTValue --out /home/ec2-user/locationdetails_prod.csv
+
+# txntype- Mongo_Preprod-1
+mongoexport --host 10.187.54.184:27017 --db cardtronics --collection TxnType --csv --fields Code,Description --out /tmp/txntype_prod.csv
+
+# mongo-trans-_id,SD,ST,AD,AT - 74
+mongoexport -u binstudy1 -p 'first#1234' --db cardtronics --collection transactions --fields _id,SD,ST,AD,AT --csv --query '{ SD : { $gte:{ "$date": "2014-01-01T00:00:00.000Z" }, $lte:{ "$date": "2014-01-01T23:59:59.999Z" } } }' --out /opt/test_01.csv
+
+# mongo-trans-_id,SD,ST,AD,AT - 198
+mongoexport --host 198.251.76.5:27017 --db cardtronics --collection transactions --fields _id,SD,ST,AD,AT --csv --query '{ SD : { $gte:{ "$date": "2014-10-01T00:00:00.000Z" }, $lte:{ "$date": "2014-10-31T23:59:59.999Z" } } }' --out /tmp/oct_14.csv
+
+mongodump --host 74.208.11.129:27017 -u binstudy1 -p "first#1234" --out /var/mongodump.json --db cardtronics --collection transactions_test --query '{ SD : { $gte:{ "$date": "2014-01-01T00:00:00.000Z" }, $lte:{ "$date": "2014-01-01T23:59:59.999Z" } } }'
