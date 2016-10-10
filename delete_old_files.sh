@@ -3,7 +3,7 @@
 #####################################################################
 # Author: Jitendra Gehlot
 # Filename: delete_old_files.sh
-# Date: 10/10/2016
+# Date: 10/08/2014
 # Description: This script is used to clean the "Temp" folder 
 #              for HIVE USERS where folders are older than 15 days.
 #####################################################################
