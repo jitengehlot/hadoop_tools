@@ -1,0 +1,65 @@
+sqoop import --connect "jdbc:sqlserver://10.10.26.25:1433;username=sa;password=first#1234;database=testcr" --query 'select * from tran where Settlementdate < 2014/01/01:10:30:00 AM $CONDITIONS' --split-by Settlementdate  --hive-table tran --target-dir /user/root/tran -m 1 --hive-import
+
+//correct top 10
+sqoop import --connect "jdbc:sqlserver://10.10.26.25:1433;username=test;password=test;database=testcr" --query 'select top 1000000 * from testcr where $CONDITIONS' --split-by atminternalid  --hive-table atmtxn1M --target-dir /user/root/atmtxn1M -m 10 --hive-import
+
+sqoop import --connect "jdbc:sqlserver://10.10.26.25:1433;username=test;password=test;database=testcr" --table trans --hive-table trans --hive-import -m 5
+
+sqoop import --connect "jdbc:sqlserver://10.10.26.25:1433;username=test;password=test;database=testcr" --table trans --hive-table trans100 --split-by atminternalid  --hive-import -m 6
+
+
+sqoop job --create trans_increment -- import --table trans --connect jdbc:sqlserver://10.10.26.25:1433?testcr --username=test --password=test --hive-import --hive-table transtest --split-by atminternalid --incremental append --check-column atminternalid --last-value 32931 --verbose -m 5
+
+//  correct job creation script
+sqoop job --create trans_increment --meta-connect "jdbc:hsqldb:hsql://10.10.26.25:16000/sqoop" -- import --table trans --connect "jdbc:sqlserver://10.10.26.25:1433;username=test;password=test;database=testcr" --hive-import --hive-table trans --split-by atminternalid --incremental append --check-column atminternalid --last-value 32931 --verbose -m 5
+
+//  correct job creation script without meta-connect
+sqoop job --create trans_increment -- import --table trans --connect "jdbc:sqlserver://10.10.26.25:1433;username=test;password=test;database=testcr" --hive-import --hive-table trans --split-by atminternalid --incremental append --check-column atminternalid --last-value 32931 --verbose -m 5
+
+sqoop import --connect "jdbc:sqlserver://10.10.26.25:1433;username=test;password=test;database=testcr" --table trans --hive-import --hive-table trans --split-by atminternalid --incremental append --check-column atminternalid --last-value 32931 --verbose -m 5
+
+// correct sqoop command
+sqoop job --exec trans_increment --verbose
+
+<command>job --exec trans_increment --verbose</command>
+
+// sqoop command on server
+sqoop import --connect "jdbc:sqlserver://74.208.67.53:1433;username=sqoop;password=gYY66YfX;database=EDW" --query "select internalid,oldid,recordinternalid,processorid,terminal,txntypeid,responsecodeid,rejectcodeid,bankid,settlementdate,networkid,terminalsequencenumber,settlementtime,activitydate,activitytime,amount,fee,surcharge,interchange,txn,ourbank,ebttransaction,logid,p_networkcode,p_txncode,p_responsecode,p_rejectcode,p_field1,p_field2,atminternalid,ep,interchangecalc,international,ichgrateid,branded,denytxntype,cardid,dccamount,dcctotal,dcctxn,deny711,countrycode,hp4,hp5,hp6,hp7,hp8,hp9,hp10,hp11,hp12,hpcatm,pan from dbo.atmtxndetails with(readpast) where  $CONDITIONS" --split-by SettlementDate -m 100 --hive-import --hive-table atmtxn1 --incremental append --check-column atminternalid --last-value 32931 --verbose -m 5
+  
+INSERT INTO DBS (DB_ID,DESC,DB_LOCATION_URI,NAME,OWNER_NAME,OWNER_TYPE) VALUES (1,"default","hdfs://agent3.poc.com:8020/apps/hive/warehouse","hive","","");
+
+
+hive --service metastore
+
+/usr/lib/hive/bin/hiveserver2
+
+// local - kriti
+sqoop import --connect "jdbc:sqlserver://10.10.26.25:1433;username=sa;password=first#1234;database=testcr" --table atmtxn --where "settlementdate <='2013-01-05 00:00:00.000'" --split-by internalid  --hive-table atmtxn --hive-import
+
+sqoop import --connect "jdbc:sqlserver://10.10.26.25:1433;username=test;password=test;database=testcr" --table atmtxn --split-by internalid --incremental lastmodified --check-column SettlementDate --last-value "2013-01-05 00:00:00.000" --hive-table atmtxn_new --hive-import --target-dir /user/root/atmtxn_new
+
+explain select settlementdate, count(*) from atmtxn_orc group by settlementdate order by settlementdate desc
+
+CREATE INDEX atmtxn_SD ON TABLE atmtxn (settlementdate) AS 'COMPACT' WITH DEFERRED REBUILD;
+
+CREATE INDEX atmtxn_orc_SD ON TABLE atmtxn_orc (settlementdate) AS 'COMPACT' WITH DEFERRED REBUILD;
+
+CREATE INDEX atmtxn_cr_orc_SD ON TABLE atmtxn_cr_orc (settlementdate) AS 'COMPACT' WITH DEFERRED REBUILD;
+
+create table atmtxn_cr_orc stored as orc as select * from atmtxn_cr;
+
+select count(distinct atminternalid) from atmtxn;
+
+
+set hive.compute.query.using.stats = true;
+set hive.stats.fetch.column.stats = true;
+set hive.stats.fetch.partition.stats = false;
+set hive.cbo.enable = true;
+
+db.transactions_HX.ensureIndex( { H6: 1, SD: 1, HX: 1 }, { sparse: true } )
+
+sqoop import --connect "jdbc:sqlserver://10.10.26.25:1433;username=test;password=test;database=testcr" --query 'select * from testcr where $CONDITIONS' --split-by settlementdate --hive-table atmtxn_cr --target-dir /user/root/atmtxn_cr --hive-import -m 10
+
+sqoop import --connect "jdbc:sqlserver://10.10.26.25:1433;username=sa;password=first#1234;database=testcr" --query ' select internalid,oldid,recordinternalid,processorid,terminal,txntypeid,responsecodeid,rejectcodeid,bankid,settlementdate,networkid,terminalsequencenumber,settlementtime,activitydate,activitytime,amount,fee,surcharge,interchange,txn,ourbank,ebttransaction,logid,p_networkcode,p_txncode,p_responsecode,p_rejectcode,p_field1,p_field2,atminternalid,ep,interchangecalc,international,ichgrateid,branded,denytxntype,cardid,dccamount,dcctotal,dcctxn,deny711,countrycode,hp4,hp5,hp6,hp7,hp8,hp9,hp10,hp11,hp12,hpcatm,pan from dbo.atmtxndetails with(readpast) where  $CONDITIONS ' --split-by SettlementDate --incremental lastmodified --check-column settlementdate --last-value "2013-01-05 00:00:00.000" --target-dir /user/root/atmtxn_staging --hive-import --hive-table atmtxn_staging -m 5
+
+sqoop import --connect "jdbc:sqlserver://10.10.26.25:1433;username=sa;password=first#1234;database=testcr" --query " select internalid,oldid,recordinternalid,processorid,terminal,txntypeid,responsecodeid,rejectcodeid,bankid,settlementdate,networkid,terminalsequencenumber,settlementtime,activitydate,activitytime,amount,fee,surcharge,interchange,txn,ourbank,ebttransaction,logid,p_networkcode,p_txncode,p_responsecode,p_rejectcode,p_field1,p_field2,atminternalid,ep,interchangecalc,international,ichgrateid,branded,denytxntype,cardid,dccamount,dcctotal,dcctxn,deny711,countrycode,hp4,hp5,hp6,hp7,hp8,hp9,hp10,hp11,hp12,hpcatm,pan from dbo.atmtxndetails where settlementdate <='2013-01-05 00:00:00.000' AND \$CONDITIONS " --split-by SettlementDate --hive-table atmtxn_staging --hive-import --target-dir /user/root/atmtxn_staging -m 5

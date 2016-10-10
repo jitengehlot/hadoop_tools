@@ -1,0 +1,59 @@
+<!--******************************************-->
+<!-- workflow.xml for Sqoop Action                             -->
+<!--******************************************-->
+
+<workflow-app name="WorkflowWithSqoopAction" xmlns="uri:oozie:workflow:0.2">
+        <start to="sqoopAction"/>
+        <action name="sqoopAction">
+		        <sqoop xmlns="uri:oozie:sqoop-action:0.2">
+						<job-tracker>${jobTracker}</job-tracker>
+                        <name-node>${nameNode}</name-node>
+						<arg>job</arg>
+						<arg>--exec</arg>
+						<arg>trans_increment</arg>
+						<arg>--verbose</arg>
+                </sqoop>
+                <ok to="end"/>
+                <error to="killJob"/>
+        </action>
+        <kill name="killJob">
+            <message>"Killed job due to error: ${wf:errorMessage(wf:lastErrorNode())}"</message>
+        </kill>
+        <end name="end" />
+</workflow-app>
+
+
+<workflow-app name="[WF-DEF-NAME]" xmlns="uri:oozie:workflow:0.1">
+    ...
+    <action name="[NODE-NAME]">
+        <ssh xmlns="uri:oozie:ssh-action:0.1">
+            <host>[USER]@[HOST]</host>
+            <command>[SHELL]</command>
+            <args>[ARGUMENTS]</args>
+            ...
+            <capture-output/>
+        </ssh>
+        <ok to="[NODE-NAME]"/>
+        <error to="[NODE-NAME]"/>
+    </action>
+    ...
+</workflow-app>
+
+<workflow-app name="ssh-wf-test" xmlns="uri:oozie:workflow:0.2">
+<start to="sshjob"/>
+<action name="sshjob">
+    <ssh xmlns="uri:oozie:ssh-action:0.1">
+        <host>root@10.10.26.45<host>
+        <command>/usr/bin/hdfs</command>
+        <args>dfs</args>
+        <args>-mkdir</args>
+        <args>/user/root/hello</arg>
+    </ssh>
+    <ok to="end"/>
+    <error to="fail"/>
+</action>
+<kill name="fail">
+    <message>"Killed job due to error: ${wf:errorMessage(wf:lastErrorNode())}"</message>
+</kill>
+<end name="end" />
+</workflow-app>

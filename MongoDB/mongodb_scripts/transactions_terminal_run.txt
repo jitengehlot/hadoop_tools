@@ -1,0 +1,36 @@
+/* 0 */
+{
+    "result" : "transactions_terminal",
+    "timeMillis" : 1062324,
+    "counts" : {
+        "input" : 8219754,
+        "emit" : 2116513,
+        "reduce" : 238330,
+        "output" : 1798897
+    },
+    "ok" : 1,
+    "_o" : {
+        "result" : "transactions_terminal",
+        "timeMillis" : 1062324,
+        "counts" : {
+            "input" : 8219754,
+            "emit" : 2116513,
+            "reduce" : 238330,
+            "output" : 1798897
+        },
+        "ok" : 1
+    },
+    "_keys" : [ 
+        "result", 
+        "timeMillis", 
+        "counts", 
+        "ok"
+    ],
+    "_db" : {
+        "_mongo" : "connection to 74.208.79.85:27017{ SSL: { sslSupport: false, sslPEMKeyFile: \"\" } }{ SSH: { host: \"\", port: 22, user: \"\", password: \"\", publicKey: { publicKey: \"\", privateKey: \"\", passphrase: \"\" }, currentMethod: 0 } }",
+        "_name" : "cardtronics",
+        "transactions_surcharge" : "cardtronics.transactions_surcharge",
+        "transactions" : "cardtronics.transactions"
+    },
+    "_coll" : "cardtronics.transactions_terminal"
+}

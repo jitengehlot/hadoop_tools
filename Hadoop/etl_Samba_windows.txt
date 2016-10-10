@@ -1,0 +1,9 @@
+Steps to turn on SAMBA incoming RULE on windows
+
+1. Go to control panel 
+2. Administrative Tools
+3. Windows Firewall with Advanced Security
+4. Under Inbound rules, select
+
+File and Printer Sharing (Echo Request - ICMPv4-In) - Profile (Domain) -  click on enable rule
+File and Printer Sharing (SMB-In) - Profile (Domain) - click on enable rule

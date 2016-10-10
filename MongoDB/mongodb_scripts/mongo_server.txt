@@ -1,0 +1,8 @@
+remote 74.208.79.85:27017
+
+robomongo - client
+
+Testing on local
+Index - HP 6 - Bin Number (Transaction)
+
+Aqua Studio

@@ -1,0 +1,349 @@
+/* 0 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3af"),
+    "Code" : 0,
+    "Description" : "No Txns"
+}
+
+/* 1 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3b0"),
+    "Code" : 1,
+    "Description" : "Withdrawal Txns"
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3b1"),
+    "Code" : 2,
+    "Description" : "Point of Sale Txns"
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3b2"),
+    "Code" : 3,
+    "Description" : "Deposit Txns"
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3b3"),
+    "Code" : 4,
+    "Description" : "Balance Inquiry Txns"
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3b4"),
+    "Code" : 5,
+    "Description" : "Transfer Txns"
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3b5"),
+    "Code" : 6,
+    "Description" : "Deny Txns"
+}
+
+/* 7 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3b6"),
+    "Code" : 7,
+    "Description" : "Mini Statement Txns"
+}
+
+/* 8 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3b7"),
+    "Code" : 8,
+    "Description" : "Full Statement Txns"
+}
+
+/* 9 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3b8"),
+    "Code" : 9,
+    "Description" : "Administrative Txns"
+}
+
+/* 10 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3b9"),
+    "Code" : 10,
+    "Description" : "Jams"
+}
+
+/* 11 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3ba"),
+    "Code" : 11,
+    "Description" : "Other Txns"
+}
+
+/* 12 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3bb"),
+    "Code" : 12,
+    "Description" : "Partial Reversals"
+}
+
+/* 13 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3bc"),
+    "Code" : 13,
+    "Description" : "Full Reversals"
+}
+
+/* 14 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3bd"),
+    "Code" : 14,
+    "Description" : "Total Txns"
+}
+
+/* 15 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3be"),
+    "Code" : 15,
+    "Description" : "Withdrawal Amount"
+}
+
+/* 16 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3bf"),
+    "Code" : 16,
+    "Description" : "Point of Sales Amount"
+}
+
+/* 17 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3c0"),
+    "Code" : 17,
+    "Description" : "Deposit Amount"
+}
+
+/* 18 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3c1"),
+    "Code" : 18,
+    "Description" : "Surcharge Txns Net"
+}
+
+/* 19 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3c2"),
+    "Code" : 19,
+    "Description" : "Surcharge Fees Net"
+}
+
+/* 20 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3c3"),
+    "Code" : 20,
+    "Description" : "Interchange Txns Net"
+}
+
+/* 21 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3c4"),
+    "Code" : 21,
+    "Description" : "Interchange Fees"
+}
+
+/* 22 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3c5"),
+    "Code" : 22,
+    "Description" : "Interchange Fees"
+}
+
+/* 23 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3c6"),
+    "Code" : 23,
+    "Description" : "Check Cash Txns"
+}
+
+/* 24 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3c7"),
+    "Code" : 24,
+    "Description" : "EBT Txns"
+}
+
+/* 25 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3c8"),
+    "Code" : 25,
+    "Description" : "EBT Withdrawal Interchange"
+}
+
+/* 26 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3c9"),
+    "Code" : 26,
+    "Description" : "Foreign Txns"
+}
+
+/* 27 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3ca"),
+    "Code" : 27,
+    "Description" : "Foreign Txns - No Surcharge"
+}
+
+/* 28 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3cb"),
+    "Code" : 28,
+    "Description" : "Stamp Txns"
+}
+
+/* 29 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3cc"),
+    "Code" : 29,
+    "Description" : "Stamp Fees"
+}
+
+/* 30 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3cd"),
+    "Code" : 30,
+    "Description" : "Full Reversals"
+}
+
+/* 31 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3ce"),
+    "Code" : 31,
+    "Description" : "Return to Checking"
+}
+
+/* 32 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3cf"),
+    "Code" : 32,
+    "Description" : "Return to Saving"
+}
+
+/* 33 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3d0"),
+    "Code" : 33,
+    "Description" : "BNA Txns"
+}
+
+/* 34 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3d1"),
+    "Code" : 35,
+    "Description" : "PIN Select"
+}
+
+/* 35 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3d2"),
+    "Code" : 36,
+    "Description" : "Heartbeat"
+}
+
+/* 36 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3d3"),
+    "Code" : 37,
+    "Description" : "Payment Enclosed"
+}
+
+/* 37 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3d4"),
+    "Code" : 38,
+    "Description" : "PIN Change"
+}
+
+/* 38 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3d5"),
+    "Code" : 39,
+    "Description" : "Transaction Summary"
+}
+
+/* 39 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3d6"),
+    "Code" : 40,
+    "Description" : "Card Review"
+}
+
+/* 40 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3d7"),
+    "Code" : 41,
+    "Description" : "Log Only"
+}
+
+/* 41 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3d8"),
+    "Code" : 42,
+    "Description" : "Message Enclosed to Financial Institution"
+}
+
+/* 42 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3d9"),
+    "Code" : 43,
+    "Description" : "Payment From/To"
+}
+
+/* 43 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3da"),
+    "Code" : 44,
+    "Description" : "Check Verify"
+}
+
+/* 44 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3db"),
+    "Code" : 45,
+    "Description" : "Check Guarantee"
+}
+
+/* 45 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3dc"),
+    "Code" : 46,
+    "Description" : "Deposit with Cash Back"
+}
+
+/* 46 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3dd"),
+    "Code" : 47,
+    "Description" : "Preauthorization Purchase Completion"
+}
+
+/* 47 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3de"),
+    "Code" : 48,
+    "Description" : "Mail/Phone Order"
+}
+
+/* 48 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3df"),
+    "Code" : 49,
+    "Description" : "Merchandise Return"
+}
+
+/* 49 */
+{
+    "_id" : ObjectId("52e5e8b9550c2da6ab89c3e0"),
+    "Code" : 50,
+    "Description" : "Cash Advance"
+}

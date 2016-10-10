@@ -1,0 +1,61 @@
+set hive.exec.reducers.max=50;
+set hive.exec.compress.intermediate=true;
+set hive.auto.convert.join=true;
+set hive.optimize.bucketmapjoin=true;
+set hive.optimize.bucketmapjoin.sortedmerge=true;  
+set hive.groupby.skewindata=true;  
+set hive.exec.parallel=true; 
+set hive.hadoop.supports.splittable.combineinputformat=true;
+
+
+set mapred.reduce.tasks=50;
+set mapred.reduce.parallel.copies=20;
+set mapred.job.reuse.jvm.num.tasks=-1;
+set mapred.compress.map.output=True;
+set dfs.replication=1;
+set io.sort.mb=600;
+set mapred.tasktracker.map.tasks.maximum=10;
+set mapred.tasktracker.reduce.tasks.maximum=10;
+set tasktracker.http.threads=50;
+set mapred.map.tasks.speculative.execution=False
+set mapred.reduce.tasks.speculative.execution=False
+set mapred.child.java.opts=-Xmx400m; 
+set io.sort.factor=100;
+set mapred.inmem.merge.threshold=10000000;
+set min.num.spills.for.combine=20;
+set io.sort.spill.percent=.9;
+set mapred.min.split.size=1000000000;
+set mapred.max.split.size=2415919104;
+set dfs.block.size=21474836480;
+set servicexml.datanode.xmx=-Xmx2048m;
+
+
+
+
+
+set mapreduce.job.reduces=50;
+set mapreduce.reduce.shuffle.parallelcopies=20;
+set mapreduce.job.jvm.numtasks=-1;
+set mapreduce.map.output.compress=true;
+set mapreduce.task.io.sort.mb=600;	
+set mapreduce.map.speculative=false;
+set mapreduce.reduce.speculative=false;	
+set mapreduce.task.io.sort.factor=100;
+set mapreduce.reduce.merge.inmem.threshold=10000000;
+set mapreduce.map.sort.spill.percent=0.90;
+set mapreduce.input.fileinputformat.split.minsize=2415919104;
+set mapreduce.input.fileinputformat.split.minsize=5369000000;
+
+set dfs.replication=1;
+set dfs.blocksize=21474836480;
+
+	set mapreduce.tasktracker.map.tasks.maximum=10;
+	set mapreduce.tasktracker.reduce.tasks.maximum=10;
+	set mapreduce.tasktracker.http.threads=50;
+	set mapred.child.java.opts=-Xmx400m;
+
+
+
+set min.num.spills.for.combine=20;
+set mapreduce.input.fileinputformat.split.maxsize
+

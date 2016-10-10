@@ -1,0 +1,21 @@
+C:\mongodb2_6\bin\mongod.exe --dbpath C:\data_26
+
+C:\mongodb\bin\mongod.exe --dbpath=C:\mongodb\data\db
+C:\mongodb\bin\mongo.exe
+
+cd C:\mongodb2_6\bin\
+
+mongo --host mongodbtw.cloudapp.net --port 27018
+
+mongo --host mongodbtw.cloudapp.net --port 27018
+
+mongoimport -d cardtronics -c terminaldetails --type csv --file C:\terminaldetails.csv --headerline
+
+mongoimport -d cardtronics -c terminaldetails --type csv --file C:\terminaldetails.csv --headerline
+
+------------------ One and One - MongoDB Test Env ------------------
+IP address :         74.208.11.129
+Root user :          root
+Initial password : osP8M8Xv
+
+GPRS 54671
